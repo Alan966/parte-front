@@ -1,0 +1,51 @@
+// Colors
+$dark-blue:#00005f;
+$meidum-blue:#0b00c7;
+$morado:#5b1fff;
+$medium-pink: #dc00e0;
+$black: #000300;
+$white: #fdfffc;
+$greey-blue:#dce4ea;
+$light-blue:#5b6ece;
+$background-linear: linear-gradient($dark-blue, $morado);
+$wrong: #ff0000;
+$grey: #888888;
+$grey-light: #c2c2c2;
+$water-color: #008080;
+
+// fonts
+$title-font: 'Bruno Ace SC', cursive;
+$body-font: 'Mulish', sans-serif;
+
+// size font
+$small-small-font: 0.8rem;
+$small-font: 1rem;
+$mediumSmall-font:1.2rem;
+$medium-font:1.5rem;
+$big-font:1.9rem;
+$big-big-font:2.5rem;
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+$responsive:(
+    small: 320px,
+    medium: 768px,
+    large: 1024px,
+    xlarge: 1200px,
+    xxlarge: 1400px
+);
+
+$cien: 100%;
+
+
+// z-index
+$one: 10;
+$two: 50;
+$three: 100;
+$four: 150;
+$five: 200;

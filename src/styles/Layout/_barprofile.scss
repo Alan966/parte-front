@@ -1,0 +1,35 @@
+%text{
+    font-size: $small-font;
+    font-family: $title-font;
+    color: $black;
+    @include less-than(medium){
+        font-size: $small-small-font;
+    }
+}
+
+.bar_contend{
+    position: relative;
+    z-index: $three;
+    @include displayFlex(false, space-between, center);
+    background: $grey-light;
+     & > *{
+        margin: 0.2em 1rem;
+     }
+    .item_bar{
+        a{
+            @extend %text;
+        }
+        @include less-than(medium){
+            margin: 0.2em;
+        }
+    }
+}
+.two_items{
+    @include displayFlex(false, center, center);
+    .counter{
+        margin: 0 0.5rem;
+        width: 24px;
+        height: 24px;
+        @extend %text;
+    }
+}

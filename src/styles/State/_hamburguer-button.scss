@@ -1,0 +1,111 @@
+$hamburguer:(
+    initial:(
+        width: 4rem,
+        height: 2rem,
+        margin: 0.8rem,
+        position: relative,
+    )
+);
+$hamburguer_hover:(
+    both:(
+        content: '',
+        display: block,
+        position: absolute,
+        width: 4rem,
+        height: 3px,
+        background: $black,
+        box-shadow: boxShadowLine()
+    ),
+    before:(
+        top: 0,
+        transition: transition(),
+    ),
+    after:(
+        bottom: 0,
+        transition: transition(),
+    ),
+    line:(
+        top: 1rem,
+    ),
+    active:(
+        after:(
+            transform: rotate(45deg) translateY(-1.2em),
+        ),
+        before:(
+            transform: rotate(-45deg) translateY(1.2em),
+        ),
+        line:(
+            display: none,
+        )
+    )
+);
+.button_hamburguer{
+    @include less-than(medium){
+        @each $key, $value in $hamburguer{
+            @if $key == 'initial'{
+                @each $key2, $value2 in $value{
+                    #{$key2}: $value2;
+                }
+            }
+        }
+        @each $key, $value in $hamburguer_hover{
+            @if $key == 'both'{
+                .line,
+                &::before,
+                &::after{
+                    @each $key2, $value2 in $value{
+                        #{$key2}: $value2;
+                    }
+                }
+            }
+            @if $key == 'before'{
+                &::before{
+                    @each $key2, $value2 in $value{
+                        #{$key2}: $value2;
+                    }
+                }
+            }
+            @if $key == 'after'{
+                &::after{
+                    @each $key2, $value2 in $value{
+                        #{$key2}: $value2;
+                    }
+                }
+            }
+            @if $key == 'line'{
+                .line{
+                    @each $key2, $value2 in $value{
+                        #{$key2}: $value2;
+                    }
+                }
+            }
+            @if $key == 'active'{
+                &.active{
+                    @each $key2, $value2 in $value{
+                        @if $key2 == 'after'{
+                            &::after{
+                                @each $key3, $value3 in $value2{
+                                    #{$key3}: $value3;
+                                }
+                            }
+                        }
+                        @if $key2 == 'before'{
+                            &::before{
+                                @each $key3, $value3 in $value2{
+                                    #{$key3}: $value3;
+                                }
+                            }
+                        }
+                        @if $key2 == 'line'{
+                            .line{
+                                @each $key3, $value3 in $value2{
+                                    #{$key3}: $value3;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

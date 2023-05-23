@@ -1,0 +1,61 @@
+%content_img{
+    @include positionRelative(100vw, 40vh);
+        img.image_promotion,
+        video.video_promotion{
+            @include img();
+            @include borderRadius(0.5rem);
+            z-index: $two;
+        }
+    @include less-than(medium){
+        &::after{
+            z-index: $three;
+            @include linearGradient();
+        }
+    }
+
+    &::before{
+    z-index: $one;
+    @include boxShadow();
+    }
+
+    @include more-than(medium){
+        width: 30em;
+    }
+}
+
+
+%title_promotion{
+    text-align: center;
+    z-index: $four;
+    @include title();
+    @include positionAbsolute(100%, 0, 50%);
+    @include more-than(medium){
+        @include positionRelative(100%,0,0);
+        @include margins(1rem);
+        @include title($medium-font);
+    }
+}
+
+%description_promotion{
+    font-family: $body-font;
+    font-size: $mediumSmall-font;
+    color: $white;
+    padding: 1.5rem;
+    text-align: center;
+    z-index: $four;
+}
+
+.content_promotion{
+    margin: 1rem, 0;
+    @include positionRelative(100%);
+    @include displayFlex(true);
+    .title_promotion{
+        @extend %title_promotion;
+    }
+    .description_promotion{
+        @extend %description_promotion;
+    }
+    .content_img{
+        @extend %content_img;
+    }
+}

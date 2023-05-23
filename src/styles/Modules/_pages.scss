@@ -1,0 +1,46 @@
+main.page{
+    background: $light-blue;
+    background: background-linear-gradient($light-blue, $black);
+
+}
+.section_article{
+    padding: 1rem;
+    @include displayFlex(true);
+    h1{
+        @include title();
+        margin: 1em;
+    }
+    p, ul li{
+        @include parrafo();
+        padding: 0.5em  15rem;
+        @include less-than(medium){
+            padding: 0.5em ;
+        }
+    }
+    img{
+        width: 40em;
+        height: 25em;
+        @include less-than(medium){
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+.fondThree{
+    ul{
+        @include displayFlex(true, flex-start, center);
+        li{
+            padding: 0;
+        }
+    }
+}
+
+.contend-image{
+    position: relative;
+    width: $cien;
+    height: 30rem;
+     img{
+        @include img();
+        box-shadow: boxShadow();
+     }
+}

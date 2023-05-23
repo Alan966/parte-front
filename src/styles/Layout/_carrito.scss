@@ -1,0 +1,39 @@
+.container_profile{
+    background: $background-linear;
+    @include displayFlex(true, center, center);
+    .email{
+        @include title($small-font);
+        margin : 1rem;
+    }
+}
+
+%contend_img_carrito{
+    width: $cien;
+    height: 40vh;
+    position: relative;
+    img{
+        @include img()
+    }
+}
+.container_card{
+    margin: 1rem;
+    padding: 1rem;
+    background: background-linear-gradient($grey, $dark-blue);
+    border: 1px solid $black;
+    .left{
+        h2{
+            @include title($small-font);
+            padding: 1rem;
+        }
+        .contend_img_carrito{
+            @extend %contend_img_carrito;
+        }
+    }
+
+    .right{
+        p{
+            @include title($small-small-font);
+            padding: 0.5em;
+        }
+    }
+}

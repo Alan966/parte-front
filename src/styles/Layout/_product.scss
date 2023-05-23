@@ -1,0 +1,158 @@
+.section_product{
+    background: $light-blue;
+    position: relative;
+    left: 0;
+    @include displayFlex(true, center, center);
+    & >*{
+        position: relative;
+        z-index: $two;
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        @include linearGradient();
+        top: 0;
+    }
+    overflow-x: hidden;
+}
+
+%contend_img{
+    height: 80vh;
+    width: 100vw;
+    img{
+        width: 100%;
+        object-fit: cover;
+    }
+    @include displayFlex(false, flex-start, center);
+    flex-wrap: nowrap;
+    margin: 0 1rem;
+    @include more-than(medium){
+        flex-wrap: wrap;
+        height: 100%;
+        @include grid(2);
+        width: $cien;
+    }
+}
+%contend_buttons{
+    position: absolute;
+    z-index: $four;
+    top: 60%;
+    @include displayFlex(false, space-between, center);
+    width: 100%;
+    @include more-than(medium){
+        display: none;
+    }
+}
+.contend_info_product{
+   .contend_info_product_text{
+    .title{
+        @include title();
+        text-align: center;
+        margin: 0.5rem;
+    }
+    p{
+        @include parrafo();
+        text-align: center;
+    }
+    @include more-than(medium){
+        grid-column: 2/3;
+        grid-row: 4/7;
+        padding: 1rem;
+    }
+   }
+    .contend_section_images{
+        .contend_images_product{
+            @extend %contend_img;
+            // overflow-x: scroll;
+            &.active{
+
+            }
+        }
+        .contend_buttons{
+            @extend %contend_buttons;
+        }
+        @include more-than(medium){
+            grid-column: 1/2;
+            grid-row: 1/10;
+        }
+    }
+    @include more-than(medium){
+        @include grid(2, 0, 9);
+        flex-wrap: wrap-reverse;
+    }
+}
+%button{
+    content: '';
+    width: 50px;
+    height: 50px;
+    border-radius: 0.3rem;
+    border: 1px solid $black;
+}
+.button_left{
+    @extend %button;
+    left: 0;
+    background: url('../img/logo/drake.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.button_right{
+    @extend %button;
+    right: 0;
+    background: url('../img/logo/badbunny.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.description_product{
+    @include displayFlex(true, center, center);
+    table{
+        border-collapse: collapse;
+        border: 1px solid $white;
+        color: $white;
+        @include displayFlex(true, center, center);
+        tr{
+            border: 1px solid $white;
+            td{
+                border: 1px solid $white;
+                padding: 0.5rem;
+            }
+            width: $cien;
+        }
+        @include more-than(medium){
+            grid-column: 1/4;
+        }
+    }
+    padding-bottom: 15vh;
+    @include more-than(medium){
+        @include grid(6, 0, 0);
+    }
+}
+
+.description{
+     > *{
+        font-size: $small-font;
+        font-family: $body-font;
+        color: $white;
+        margin: 1em;
+     }
+     @include more-than(medium){
+        grid-column: 4/7;
+     }
+}
+.contend_button_agregar{
+    position: fixed;
+    top: 85vh;
+    border-radius: 0.5rem;
+    .button{
+        height:10vh;
+        width: 100%;
+        padding: 1rem;
+        text-align: center;    }
+    @include more-than(medium){
+        grid-column: 3 / 5;
+        text-align: center;
+        background: red;
+        position: static;
+    }
+}

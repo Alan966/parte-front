@@ -1,0 +1,24 @@
+.sectionProducts{
+    background: $light-blue;
+    &::before{
+        content: '';
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        @include linearGradient();
+        top: 0;
+    }
+
+    h2{
+        @include title($big-big-font, $white);
+        text-align: center;
+        padding: 1rem;
+        position: relative;
+        z-index: $two;
+    }
+    .contendProdcuts{
+        @include displayFlex(false, space-around, center, 1rem);
+        flex-wrap: wrap;
+    }
+
+}

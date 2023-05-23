@@ -1,0 +1,31 @@
+$main:(
+        padding: 1rem 0,
+        background: $light-blue,
+        position: relative,
+);
+$main-big:(
+        after:(
+            content: '',
+            position: absolute,
+            width: $cien,
+            height: $cien,
+            background: linearGradient(),
+        )
+);
+
+.main_promotions{
+     @each $key , $value in $main{
+        #{$key}: $value;
+     }
+    @include more-than(medium){
+        @include grid(2, 1fr, 1fr);
+        @each $key, $value in $main-big{
+             &::after{
+                @each $key2, $value2 in $value{
+                    #{$key2}: $value2;
+                }
+             }
+        }
+    }
+}
+@import "./_promotions.scss"

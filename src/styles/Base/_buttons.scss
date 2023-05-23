@@ -1,0 +1,10 @@
+
+.button{
+    $padding-button: 0.5rem;
+    padding: $padding-button;
+    border-radius: $padding-button;
+    background: $medium-pink;
+    color: $white;
+    font-family: $title-font;
+    font-size: $mediumSmall-font;
+}

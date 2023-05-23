@@ -1,0 +1,165 @@
+@mixin less-than($breakpoint){
+    @if map-has-key($responsive, $breakpoint){
+        @media screen and (max-width: map-get($responsive, $breakpoint)){
+            @content;
+        }
+    }@else if type-of($breakpoint) == number and unit($brealpoint) == 'px' or unit($breakpoint) == 'em' or unit($breakpoint) == 'rem'{
+        @media screen and (max-width: $breakpoint){
+            @content;
+        }
+    }
+}
+@mixin more-than($breakpoint){
+    @if map-has-key($responsive, $breakpoint){
+        @media screen and (min-width: map-get($responsive, $breakpoint)){
+            @content;
+        }
+    }@else if type-of($breakpoint) == number and unit($brealpoint) == 'px' or unit($breakpoint) == 'em' or unit($breakpoint) == 'rem'{
+        @media screen and (min-width: $breakpoint){
+            @content;
+        }
+    }
+}
+
+@mixin grid($columns, $gap: 1, $rows: 1){
+    @if (type-of($columns) == number) and (type-of($gap) == number) and (type-of($rows) == number){
+        display: grid;
+        grid-template-columns: repeat($columns, 1fr);
+        grid-gap: $gap;
+        grid-template-rows: repeat($rows, 1fr);
+    }
+}
+
+@mixin positionRelative( $width: false, $height: false, $top: false, $right: false, $bottom: false, $left: false){
+    position: relative;
+    @if $width != false{
+        width: $width;
+    }
+    @if $height != false{
+        height: $height;
+    }
+    @if $top != false{
+        top: $top;
+    }
+    @if $right != false{
+        right: $right;
+    }
+    @if $bottom != false{
+        bottom: $bottom;
+    }
+    @if $left != false{
+        left: $left;
+    }
+}
+
+@mixin positionAbsolute( $width: false, $height: false, $top: false, $right: false, $bottom: false, $left: false){
+    position: absolute;
+    @if $width != false{
+        width: $width;
+    }
+    @if $height != false{
+        height: $height;
+    }
+    @if $top != false{
+        top: $top;
+    }
+    @if $right != false{
+        right: $right;
+    }
+    @if $bottom != false{
+        bottom: $bottom;
+    }
+    @if $left != false{
+        left: $left;
+    }
+}
+
+@mixin margins($top:0, $right:0 ,$bottom:0 , $left:0, ){
+    @if $top != 0 and $right == 0 and $bottom == 0 and $left == 0{
+        margin: $top;
+    }@else if $top != 0 and $right != 0 and $bottom == 0 and $left == 0{
+        margin: $top $right;
+    }@else if $top != 0 and $right != 0 and $bottom != 0 and $left == 0{
+        margin: $top $right $bottom;
+    }@else if $top != 0 and $right != 0 and $bottom != 0 and $left != 0{
+        margin: $top $right $bottom $left;
+    }
+}
+@mixin borderRadius($value: 1rem){
+    border-radius: $value;
+}
+
+@mixin displayFlex($column: false, $justify: center, $align: center, $flex: false){
+    display: flex;
+    @if $column == true{
+        flex-direction: column;
+    }@else{
+        flex-direction: row;
+    }
+    @if $justify == center{
+        justify-content: center;
+    }@else if ($justify == false){
+    }@else{
+        justify-content: $justify;
+    }
+    @if $align == center{
+        align-items: center;
+    }@else if $align == false{
+    }@else{
+        align-items: $align;
+    }
+    @if $flex != false{
+        flex: $flex;
+    }
+}
+
+@mixin displayNone(){
+    display: none;
+}
+
+@mixin img(){
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin linearGradient($colorOne: false, $colorTwo: false ){
+    content: '';
+    // position: absolute;
+    width: 100%;
+    height: 100%;
+    @if $colorOne == false and $colorTwo == false{
+        background: linear-gradient(unquote('to bottom, rgba(0, 0, 0, 0.26) 10%, rgb(0, 0, 0) 70%'));
+    }@else{
+        background: linear-gradient(unquote('to bottom, #{$colorOne} 10%, #{$colorTwo} 70%'));
+    }
+}
+
+@mixin boxShadow($boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'){
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-shadow: unquote($boxShadow);
+}
+
+
+@mixin title($bigfonty: false, $color: false){
+    font-family: $title-font;
+    @if $bigfonty == false{
+        font-size: $big-font;
+    }@else{
+        font-size: $bigfonty;
+    }
+    @if $color == false{
+        color:  $white;
+    }@else{
+        color: $color;
+    }
+};
+
+@mixin parrafo(){
+    font-size: $mediumSmall-font;
+    color: $white;
+    font-family: $body-font;
+}

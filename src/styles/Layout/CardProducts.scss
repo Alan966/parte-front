@@ -1,0 +1,44 @@
+.producto{
+    width: 22em;
+    height: 28em;
+    border-radius: 1rem;
+    background: $white;
+    margin: 1rem;
+    box-shadow: 0 0 1rem $black;
+    position: relative;
+    z-index: $one;
+    .img_producto{
+        width: 22em;
+        height: 20em;
+        border-radius: 2rem;
+    }
+    .title_producto{
+        font-family: $title-font;
+        font-size: $mediumSmall-font;
+        text-align: center;
+        margin: 0.5rem;
+    }
+    .price{
+        font-family: $title-font;
+        font-size: $small-font;
+        text-align: center;
+        margin: 0.5rem;
+    }
+
+    &:hover{
+        transform: rotate(10deg) translateY(-0.5em);
+        box-shadow: 0 0 1rem $light-blue;
+        animation: moveLogo 0.5s infinite alternate;
+        .title_producto{
+            color: $light-blue;
+        }
+    }
+}
+@keyframes moveLogo {
+    from {
+      transform: rotate(10deg) translateY(-0.5em);
+    }
+    to {
+      transform:  rotate(-10deg) translateY(0.5em);
+    }
+  }

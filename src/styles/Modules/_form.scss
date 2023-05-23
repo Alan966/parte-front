@@ -1,0 +1,43 @@
+%inputContent{
+    // background: $white;
+    @include displayFlex(true, center, center);
+}
+$padding-item: 0.5em;
+%label{
+    color: $white;
+    font-family: $title-font;
+    font-size: $small-font;
+    padding: $padding-item
+}
+$widthInput:(
+    phone: 90%,
+    desktop: 30%
+);
+%input{
+    padding: $padding-item;
+    border-radius: $padding-item;
+    width: map-get($widthInput, phone);
+    text-align: center;
+    @include more-than(medium){
+        width: map-get($widthInput, desktop);
+    }
+}
+form.form{
+    width: $width-form;
+    // background: yellow;
+    .container_input{
+        @extend %inputContent;
+        label{
+            @extend %label;
+        }
+        input{
+            @extend %input;
+        }
+    }
+    .container_ratio{
+        @extend %label;
+        &> *{
+            @extend %label;
+        }
+    }
+}

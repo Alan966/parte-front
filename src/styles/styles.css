@@ -1,0 +1,858 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000300;
+}
+
+.button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: #dc00e0;
+  color: #fdfffc;
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .button_hamburguer {
+    width: 4rem;
+    height: 2rem;
+    margin: 0.8rem;
+    position: relative;
+  }
+  .button_hamburguer .line, .button_hamburguer::before, .button_hamburguer::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 4rem;
+    height: 3px;
+    background: #000300;
+    box-shadow: 2px 3px 2px rgba(255, 255, 255, 0.8);
+  }
+  .button_hamburguer::before {
+    top: 0;
+    transition: transform 0.3s ease-in;
+  }
+  .button_hamburguer::after {
+    bottom: 0;
+    transition: transform 0.3s ease-in;
+  }
+  .button_hamburguer .line {
+    top: 1rem;
+  }
+  .button_hamburguer.active::after {
+    transform: rotate(45deg) translateY(-1.2em);
+  }
+  .button_hamburguer.active::before {
+    transform: rotate(-45deg) translateY(1.2em);
+  }
+  .button_hamburguer.active .line {
+    display: none;
+  }
+}
+
+header.header ul.content-list-headers li {
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 1.2rem;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  header.header ul.content-list-headers li {
+    padding: 1.5em;
+  }
+}
+header.header ul.content-list-headers li a {
+  color: #fdfffc;
+}
+@media screen and (max-width: 768px) {
+  header.header ul.content-list-headers li:hover ul.content-list-headers a {
+    font-size: 1rem;
+    color: #000300;
+    text-shadow: 0 0 10px #000300;
+  }
+}
+header.header ul.content-list-headers li:hover ul.content-list-headers:empty {
+  display: none;
+}
+
+header.header ul.content-list-headers li:hover ul.content-list-headers {
+  background: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1rem;
+}
+@media screen and (min-width: 768px) {
+  header.header ul.content-list-headers li:hover ul.content-list-headers {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #5b6ece 10%, #000300 70%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 5em;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 200;
+    color: #fdfffc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1rem;
+  }
+}
+
+header.header .content-logo {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  margin: 0.3rem 1rem 0.3rem 0.3rem;
+}
+header.header .content-logo .logo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+header.header ul.content-list-headers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex: 1rem;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  header.header ul.content-list-headers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+header.header {
+  background: linear-gradient(#00005f, #5b1fff);
+  position: relative;
+  z-index: 100;
+}
+@media screen and (min-width: 768px) {
+  header.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+header.header ul.content-list-headers ul.content-list-headers {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  header.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  header.header .content-logo {
+    height: 4em;
+  }
+  header.header ul.content-list-headers {
+    display: none;
+  }
+  header.header.active .content-logo {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    top: 2.5rem;
+  }
+  header.header.active .content-logo, header.header.active ul.content-list-headers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  header.header {
+    height: 6em;
+  }
+}
+
+.main_promotions {
+  padding: 1rem 0;
+  background: #5b6ece;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .main_promotions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1fr;
+    grid-template-rows: repeat(1fr, 1fr);
+  }
+  .main_promotions::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.795));
+  }
+}
+
+.content_promotion .content_img {
+  position: relative;
+  width: 100vw;
+  height: 40vh;
+}
+.content_promotion .content_img img.image_promotion,
+.content_promotion .content_img video.video_promotion {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  z-index: 50;
+}
+@media screen and (max-width: 768px) {
+  .content_promotion .content_img::after {
+    z-index: 100;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.26) 10%, rgb(0, 0, 0) 70%);
+  }
+}
+.content_promotion .content_img::before {
+  z-index: 10;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+@media screen and (min-width: 768px) {
+  .content_promotion .content_img {
+    width: 30em;
+  }
+}
+
+.content_promotion .title_promotion {
+  text-align: center;
+  z-index: 150;
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 1.9rem;
+  color: #fdfffc;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  top: 50%;
+}
+@media screen and (min-width: 768px) {
+  .content_promotion .title_promotion {
+    position: relative;
+    width: 100%;
+    height: 0;
+    top: 0;
+    margin: 1rem;
+    font-family: "Bruno Ace SC", cursive;
+    font-size: 1.5rem;
+    color: #fdfffc;
+  }
+}
+
+.content_promotion .description_promotion {
+  font-family: "Mulish", sans-serif;
+  font-size: 1.2rem;
+  color: #fdfffc;
+  padding: 1.5rem;
+  text-align: center;
+  z-index: 150;
+}
+
+.content_promotion {
+  margin: 1rem, 0;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content_form {
+  background: linear-gradient(#00005f, #5b1fff);
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+}
+.content_form .message_form {
+  color: #ff0000;
+  width: 100%;
+  height: 3em;
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .content_form .message_form {
+    height: 4em;
+    font-size: 1.2rem;
+  }
+}
+.content_form .title_form {
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 1.9rem;
+  color: #fdfffc;
+  padding: 1em;
+}
+
+form.form .container_input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form.form .container_ratio > *, form.form .container_ratio, form.form .container_input label {
+  color: #fdfffc;
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 1rem;
+  padding: 0.5em;
+}
+
+form.form .container_input input {
+  padding: 0.5em;
+  border-radius: 0.5em;
+  width: 90%;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  form.form .container_input input {
+    width: 30%;
+  }
+}
+
+form.form {
+  width: 100%;
+}
+main.page {
+  background: #5b6ece;
+  background: linear-gradient(to right, #5b6ece, #000300);
+}
+
+.section_article {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section_article h1 {
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 1.9rem;
+  color: #fdfffc;
+  margin: 1em;
+}
+.section_article p, .section_article ul li {
+  font-size: 1.2rem;
+  color: #fdfffc;
+  font-family: "Mulish", sans-serif;
+  padding: 0.5em 15rem;
+}
+@media screen and (max-width: 768px) {
+  .section_article p, .section_article ul li {
+    padding: 0.5em;
+  }
+}
+.section_article img {
+  width: 40em;
+  height: 25em;
+}
+@media screen and (max-width: 768px) {
+  .section_article img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.fondThree ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.fondThree ul li {
+  padding: 0;
+}
+
+.contend-image {
+  position: relative;
+  width: 100%;
+  height: 30rem;
+}
+.contend-image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.producto {
+  width: 22em;
+  height: 28em;
+  border-radius: 1rem;
+  background: #fdfffc;
+  margin: 1rem;
+  box-shadow: 0 0 1rem #000300;
+  position: relative;
+  z-index: 10;
+}
+.producto .img_producto {
+  width: 22em;
+  height: 20em;
+  border-radius: 2rem;
+}
+.producto .title_producto {
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0.5rem;
+}
+.producto .price {
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 1rem;
+  text-align: center;
+  margin: 0.5rem;
+}
+.producto:hover {
+  transform: rotate(10deg) translateY(-0.5em);
+  box-shadow: 0 0 1rem #5b6ece;
+  animation: moveLogo 0.5s infinite alternate;
+}
+.producto:hover .title_producto {
+  color: #5b6ece;
+}
+
+@keyframes moveLogo {
+  from {
+    transform: rotate(10deg) translateY(-0.5em);
+  }
+  to {
+    transform: rotate(-10deg) translateY(0.5em);
+  }
+}
+.sectionProducts {
+  background: #5b6ece;
+}
+.sectionProducts::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.26) 10%, rgb(0, 0, 0) 70%);
+  top: 0;
+}
+.sectionProducts h2 {
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 2.5rem;
+  color: #fdfffc;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  z-index: 50;
+}
+.sectionProducts .contendProdcuts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1rem;
+  flex-wrap: wrap;
+}
+
+.section_artilces article {
+  margin-top: 4em;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section_artilces article .img_article {
+  margin: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .section_artilces article video.img_article {
+    width: 100%;
+  }
+}
+.section_artilces article .p_article {
+  margin: 1rem;
+}
+
+.section_artilces {
+  width: 100%;
+  height: 100%;
+  padding: 1rem 0;
+  background: #5b6ece;
+  position: relative;
+}
+.section_artilces::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.795));
+}
+.section_artilces h2 {
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 1.9rem;
+  color: #fdfffc;
+  padding: 0 2em;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .section_artilces h2 {
+    font-size: 1.5rem;
+  }
+}
+.main_contend_articles {
+  padding-top: 1rem;
+  margin: 0;
+  background-color: #5b6ece;
+}
+.main_contend_articles h2 {
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 1.9rem;
+  color: #fdfffc;
+  text-align: center;
+}
+
+.content_promotion_article_card {
+  height: 20em;
+}
+.content_promotion_article_card .title_article {
+  font-size: 1.2rem;
+}
+.content_promotion_article_card::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+@media screen and (min-width: 768px) {
+  .content_promotion_article_card {
+    height: 25em;
+  }
+  .content_promotion_article_card::after {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+.two_items .counter, .bar_contend .item_bar a {
+  font-size: 1rem;
+  font-family: "Bruno Ace SC", cursive;
+  color: #000300;
+}
+@media screen and (max-width: 768px) {
+  .two_items .counter, .bar_contend .item_bar a {
+    font-size: 0.8rem;
+  }
+}
+
+.bar_contend {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #c2c2c2;
+}
+.bar_contend > * {
+  margin: 0.2em 1rem;
+}
+@media screen and (max-width: 768px) {
+  .bar_contend .item_bar {
+    margin: 0.2em;
+  }
+}
+
+.two_items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.two_items .counter {
+  margin: 0 0.5rem;
+  width: 24px;
+  height: 24px;
+}
+
+.section_product {
+  background: #5b6ece;
+  position: relative;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+.section_product > * {
+  position: relative;
+  z-index: 50;
+}
+.section_product::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.26) 10%, rgb(0, 0, 0) 70%);
+  top: 0;
+}
+
+.contend_info_product .contend_section_images .contend_images_product {
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 0 1rem;
+}
+.contend_info_product .contend_section_images .contend_images_product img {
+  width: 100%;
+  object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .contend_info_product .contend_section_images .contend_images_product {
+    flex-wrap: wrap;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1;
+    grid-template-rows: repeat(1, 1fr);
+    width: 100%;
+  }
+}
+
+.contend_info_product .contend_section_images .contend_buttons {
+  position: absolute;
+  z-index: 150;
+  top: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .contend_info_product .contend_section_images .contend_buttons {
+    display: none;
+  }
+}
+
+.contend_info_product .contend_info_product_text .title {
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 1.9rem;
+  color: #fdfffc;
+  text-align: center;
+  margin: 0.5rem;
+}
+.contend_info_product .contend_info_product_text p {
+  font-size: 1.2rem;
+  color: #fdfffc;
+  font-family: "Mulish", sans-serif;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .contend_info_product .contend_info_product_text {
+    grid-column: 2/3;
+    grid-row: 4/7;
+    padding: 1rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .contend_info_product .contend_section_images {
+    grid-column: 1/2;
+    grid-row: 1/10;
+  }
+}
+@media screen and (min-width: 768px) {
+  .contend_info_product {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0;
+    grid-template-rows: repeat(9, 1fr);
+    flex-wrap: wrap-reverse;
+  }
+}
+
+.button_right, .button_left {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border-radius: 0.3rem;
+  border: 1px solid #000300;
+}
+
+.button_left {
+  left: 0;
+  background: url("../img/logo/drake.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.button_right {
+  right: 0;
+  background: url("../img/logo/badbunny.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.description_product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 15vh;
+}
+.description_product table {
+  border-collapse: collapse;
+  border: 1px solid #fdfffc;
+  color: #fdfffc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.description_product table tr {
+  border: 1px solid #fdfffc;
+  width: 100%;
+}
+.description_product table tr td {
+  border: 1px solid #fdfffc;
+  padding: 0.5rem;
+}
+@media screen and (min-width: 768px) {
+  .description_product table {
+    grid-column: 1/4;
+  }
+}
+@media screen and (min-width: 768px) {
+  .description_product {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 0;
+    grid-template-rows: repeat(0, 1fr);
+  }
+}
+
+.description > * {
+  font-size: 1rem;
+  font-family: "Mulish", sans-serif;
+  color: #fdfffc;
+  margin: 1em;
+}
+@media screen and (min-width: 768px) {
+  .description {
+    grid-column: 4/7;
+  }
+}
+
+.contend_button_agregar {
+  position: fixed;
+  top: 85vh;
+  border-radius: 0.5rem;
+}
+.contend_button_agregar .button {
+  height: 10vh;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .contend_button_agregar {
+    grid-column: 3/5;
+    text-align: center;
+    background: red;
+    position: static;
+  }
+}
+
+.container_profile {
+  background: linear-gradient(#00005f, #5b1fff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container_profile .email {
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 1rem;
+  color: #fdfffc;
+  margin: 1rem;
+}
+
+.container_card .left .contend_img_carrito {
+  width: 100%;
+  height: 40vh;
+  position: relative;
+}
+.container_card .left .contend_img_carrito img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.container_card {
+  margin: 1rem;
+  padding: 1rem;
+  background: linear-gradient(to right, #888888, #00005f);
+  border: 1px solid #000300;
+}
+.container_card .left h2 {
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 1rem;
+  color: #fdfffc;
+  padding: 1rem;
+}
+.container_card .right p {
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 0.8rem;
+  color: #fdfffc;
+  padding: 0.5em;
+}
+
+/*# sourceMappingURL=styles.css.map */

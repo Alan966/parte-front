@@ -1,0 +1,38 @@
+$height-form: 100vh;
+$message:(
+    heightMessage:(
+        phone: 3em,
+        desktop: 4em
+    ),
+    fontSize:(
+        phone: $small-font,
+        desktop: $mediumSmall-font
+    )
+);
+
+$width-form: 100%;
+.content_form{
+    background : $background-linear;
+    text-align: center;
+    width: $width-form;
+    height: $height-form;
+    .message_form{
+        color: $wrong;
+        width: $width-form;
+        height: map-get(map-get($message, heightMessage), phone);
+        font-family: $title-font;
+        font-size: map-get(map-get($message, fontSize), phone);
+        @include displayFlex(center, center);
+        @include more-than(medium){
+            height: map-get(map-get($message, heightMessage),  desktop);
+            font-size: map-get(map-get($message, fontSize),  desktop);
+        }
+    }
+    .title_form{
+        font-family: $title-font;
+        font-size: $big-font;
+        color: $white;
+        padding: 1em;
+    }
+}
+@import "../Modules/form.scss";

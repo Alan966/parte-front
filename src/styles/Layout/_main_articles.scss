@@ -1,0 +1,9 @@
+.main_contend_articles{
+    padding-top: 1rem;
+    margin: 0;
+    background-color: $light-blue;
+    h2{
+        @include title();
+        text-align: center;
+    }
+}

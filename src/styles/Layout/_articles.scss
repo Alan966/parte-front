@@ -1,0 +1,44 @@
+
+%article{
+    margin-top: 4em;
+    position: relative;
+    z-index: $one;
+    @include displayFlex(true, center, center);
+    .img_article{
+        margin: 1rem;
+    }
+    video.img_article{
+        @include less-than(medium){
+            width: 100%;
+        }
+    }
+    .p_article{
+        margin: 1rem;
+    }
+}
+.section_artilces{
+    width: 100%;
+    height: 100%;
+    padding: 1rem 0;
+    background: $light-blue;
+    position: relative;
+    &::after{
+        content: '';
+            position: absolute;
+            width: $cien;
+            height: $cien;
+            background: linearGradient();
+    }
+    h2{
+        @include title;
+        padding: 0 2em;
+        text-align: center;
+        @include less-than(medium){
+            font-size: $medium-font;
+        }
+    }
+
+    article{
+        @extend %article;
+    }
+}

@@ -1,0 +1,102 @@
+$height-category:  5em;
+%categorie{
+    font-family: $title-font;
+    font-size: $mediumSmall-font;
+    padding:0.5em;
+    @include more-than(medium){
+        padding:1.5em;
+    }
+    a{
+        color: $white;
+    }
+    // height: $height-category;
+    @include displayFlex(true, center, center);
+    &:hover{
+        ul.content-list-headers{
+                @extend %subcatgeories;
+                @include less-than(medium){
+                    a{
+                        font-size: $small-font;
+                        color: $black;
+                        text-shadow: 0 0 10px $black;
+                    }
+                }
+                &:empty{
+                    display: none;
+                }
+        }
+    }
+}
+%subcatgeories{
+    background: none;
+    @include displayFlex(true, center, center, 1rem);
+    @include more-than(medium){
+        @include linearGradient( $light-blue, $black);
+        @include positionAbsolute(100%, 100%, $height-category ,0 , 0, 0);
+        z-index: $five;
+        color: $white;
+        @include displayFlex(false, space-around, center, 1rem);
+    }
+}
+
+%content-logo{
+    @include positionRelative(5rem, 5rem);
+    @include margins(0.3rem, 1rem, 0.3rem, 0.3rem);
+    .logo{
+        @include positionRelative(100%, 100%);
+        @include borderRadius();
+    }
+}
+
+%items_headers{
+    @include displayFlex(false, space-around, false, 1rem);
+    height: $cien;
+    @include less-than(medium){
+        @include displayFlex(true);
+    }
+    li{
+        @extend %categorie;
+    }
+}
+
+header.header{
+    background: $background-linear;
+    position: relative;
+    z-index: $three;
+    @include more-than(medium){
+        @include displayFlex();
+    }
+    .content-logo{
+        @extend %content-logo;
+    }
+    ul.content-list-headers{
+        @extend %items_headers;
+        ul.content-list-headers{
+            @include displayNone();
+        }
+    }
+    @include less-than(medium){
+        @include displayFlex(false, space-between, false);
+        .content-logo{
+            height: 4em;
+        }
+        ul.content-list-headers{
+            @include displayNone();
+        }
+        &.active{
+            .content-logo{
+                @include positionRelative(5rem, 5rem, 2.5rem);
+            }
+            .content-logo, ul.content-list-headers{
+                @include displayFlex(true, center, center);
+                text-align: center;
+            }
+        }
+    }
+    @include more-than(medium){
+        height: map-get($height_header, desktop);
+    }
+}
+.subcategorie{
+    // @include displayNone();
+}
