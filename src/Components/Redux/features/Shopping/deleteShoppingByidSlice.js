@@ -1,9 +1,10 @@
+import backend from '../../../Templates/backend'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 export const deleteShopping = createAsyncThunk('deleteShopping/delete', async (id_product) => {
     const token = sessionStorage.getItem('token')
-    const response = await axios.delete(`https://parte-backend-ecommerce.onrender.com/shopping/delete/${id_product}`, {
+    const response = await axios.delete(`${backend.url_base}/shopping/id_shopping/${id_product}`, {
         headers:{
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`

@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+import backend from "../../../Templates/backend"
 export const fetchArticles = createAsyncThunk('articles/fetchArticles', async () => {
-    const response = await axios.get(`https://parte-backend-ecommerce.onrender.com/articles/list`);
+    const response = await axios.get(`${backend.url_base}/articles/list`);
     return response.data
 });
 

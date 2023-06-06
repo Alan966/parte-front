@@ -6,7 +6,7 @@ $height-category:  5em;
     @include more-than(medium){
         padding:1.5em;
     }
-    a{
+    a, &.categorie{
         color: $white;
     }
     // height: $height-category;

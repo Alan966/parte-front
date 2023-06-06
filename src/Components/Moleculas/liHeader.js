@@ -1,11 +1,35 @@
 import UlHeader from "../Organisms/header/UlHeaders";
 import { NavLink } from "react-router-dom";
+import { useEffect, useRef } from "react";
+
+
 
 const LiHeader = ({categorie,childs, succesChild,}) => {
-
+    const ref = useRef(null);
+    function movile(width){
+        if(width < 768){
+            const category = ref.current?.getAttribute("category")
+            if(category === "categorie" && categorie.name !== "Nosotros" && categorie.name !== "Articulos"){
+                const father = ref.current
+                const firstchild = ref.current.children[0]
+                const newchild = document.createElement('span')
+                newchild.innerHTML = categorie.name
+                newchild.className = "categorie"
+                father && firstchild && father.replaceChild(newchild, firstchild)
+            }
+        }
+    }
+    useEffect(() => {
+        movile(window.innerWidth)
+        window.addEventListener("resize", () => {
+            movile(window.innerWidth)
+        })
+    }, [window.innerWidth])
 
     return (
         <li
+        ref={ref}
+        category= {categorie.id_subcategorie ? "subcategorie" : "categorie"}
         data-key= {
             categorie.id_subcategorie ?
             categorie.id_subcategorie :

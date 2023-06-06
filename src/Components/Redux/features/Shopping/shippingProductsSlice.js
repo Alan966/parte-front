@@ -1,8 +1,10 @@
+import backend from '../../../Templates/backend'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { act } from 'react-dom/test-utils'
 
 export const getProduct = createAsyncThunk('shippingProducts/getProducts', async (id_users) => {
-    const response = await axios.get(`https://parte-backend-ecommerce.onrender.com/shopping/id_user/${id_users}`)
+    const response = await axios.get(`${backend.url_base}/shopping/id_user/${id_users}`)
     return response.data
 })
 
@@ -21,7 +23,7 @@ const shippingProductsSlice = createSlice({
         .addCase(getProduct.pending, (state) => {
             state.success = false
             state.message = null
-            state.products = []
+            state.products = state.products
         })
         .addCase(getProduct.fulfilled, (state, action) => {
             state.success = action.payload.success

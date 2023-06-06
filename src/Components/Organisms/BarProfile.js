@@ -10,6 +10,7 @@ const BarProfile = () => {
     const email = useSelector(state => state.signin.email);
     const token = useSelector(state => state.signin.token);
     const id_user = useSelector(state => state.signin.id_user);
+    const deleteProdcut = useSelector(state => state.deleteShopping.success);
     const ref = useRef(null);
 
     const successAdd  = useSelector(state => state.carshopping.success);
@@ -32,12 +33,13 @@ const BarProfile = () => {
             `
         }
     }, [success])
-    useEffect(() => {
+    useEffect(() =>{
         if(sessionStorage.getItem("id_user")){
             dispatch(getProduct(sessionStorage.getItem("id_user")))
         }else{
         }
-    }, [successAdd])
+    }, [successAdd, id_user, deleteProdcut])
+
 
 
     return(

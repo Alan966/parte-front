@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { productAdd } from "../Redux/features/Productos/ProductoSlice";
+import backend from "../Templates/backend";
 const CardProdcuts = ({id_producto, name, price, indexState}) => {
 
 
@@ -16,7 +17,7 @@ const CardProdcuts = ({id_producto, name, price, indexState}) => {
         <div className="producto">
             <img
             className="img_producto"
-            src= {`https://parte-backend-ecommerce.onrender.com/productos/img/img_three/${id_producto}`}
+            src= {`${backend.url_base}/productos/img/img_three/${id_producto}`}
             >
             </img>
             <h3 className="title_producto">{name}</h3>

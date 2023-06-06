@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import backend from '../Templates/backend';
 const Promotions = ({id_promotion, title, description}) => {
     return(
         <Link
@@ -16,12 +17,12 @@ const Promotions = ({id_promotion, title, description}) => {
                     muted
                     loop
                     controls="controls"
-                    src={`https://parte-backend-ecommerce.onrender.com/promotions/photo/${id_promotion}`}
+                    src={`${backend.url_base}/promotions/photo/${id_promotion}`}
                     alt={title} />
                     :
                     <img
                     className="image_promotion"
-                    src={`https://parte-backend-ecommerce.onrender.com/promotions/photo/${id_promotion}`}
+                    src={`${backend.url_base}/promotions/photo/${id_promotion}`}
                     alt={title} />
                 }
             </div>

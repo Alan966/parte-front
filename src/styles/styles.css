@@ -75,7 +75,7 @@ header.header ul.content-list-headers li {
     padding: 1.5em;
   }
 }
-header.header ul.content-list-headers li a {
+header.header ul.content-list-headers li a, header.header ul.content-list-headers li.categorie {
   color: #fdfffc;
 }
 @media screen and (max-width: 768px) {

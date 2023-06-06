@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import backend from "../Templates/backend";
 const CardArticles = ({article}) => {
     return(
         <Link
@@ -18,12 +18,12 @@ const CardArticles = ({article}) => {
                         muted
                         loop
                         controls="controls"
-                        src={`https://parte-backend-ecommerce.onrender.com/articles/id_article/img_one/${article.id_article}`}
+                        src={`${backend.url_base}/articles/id_article/img_one/${article.id_article}`}
                         ></video>
                             :
                         <img
                         className="image_promotion"
-                        src={`https://parte-backend-ecommerce.onrender.com/articles/id_article/img_one/${article.id_article}`}
+                        src={`${backend.url_base}/articles/id_article/img_one/${article.id_article}`}
                         alt="imagen del articulo" />
                     }
                 </div>

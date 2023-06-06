@@ -1,3 +1,4 @@
+import backend from '../../../Templates/backend';
 import {createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -37,7 +38,7 @@ export const { signinState, signinSuccess, signinFailure } = signinSlice.actions
 export const signinAction = (FormData) => async (dispatch) => {
     dispatch(signinState());
     try{
-        const response = await axios.post('https://parte-backend-ecommerce.onrender.com/signin', FormData);
+        const response = await axios.post(`${backend.url_base}/signin`, FormData);
         dispatch(signinSuccess(response.data));
     }
     catch(err){

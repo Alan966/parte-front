@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useRef } from "react";
 import { postProduct } from "../Redux/features/Shopping/cardShoppingSlice";
+import backend from "../Templates/backend";
 const Product = () => {
 
     const dispatch = useDispatch();
@@ -82,10 +83,10 @@ const Product = () => {
                         <div className="button_right" onClick={rightButton}></div>
                     </div>
                     <div className="contend_images_product" ref={contendImg}>
-                        <img src={`https://parte-backend-ecommerce.onrender.com/productos/img/img_one/${productLocal.id_producto}`} alt="" />
-                        <img src={`https://parte-backend-ecommerce.onrender.com/productos/img/img_two/${productLocal.id_producto}`} alt="" />
-                        <img src={`https://parte-backend-ecommerce.onrender.com/productos/img/img_three/${productLocal.id_producto}`} alt="" />
-                        <img src={`https://parte-backend-ecommerce.onrender.com/productos/img/img_four/${productLocal.id_producto}`} alt="" />
+                        <img src={`${backend.url_base}/productos/img/img_one/${productLocal.id_producto}`} alt="" />
+                        <img src={`${backend.url_base}/productos/img/img_two/${productLocal.id_producto}`} alt="" />
+                        <img src={`${backend.url_base}/productos/img/img_three/${productLocal.id_producto}`} alt="" />
+                        <img src={`${backend.url_base}/productos/img/img_four/${productLocal.id_producto}`} alt="" />
                     </div>
                 </div>
             </div>

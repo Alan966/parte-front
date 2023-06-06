@@ -1,3 +1,4 @@
+import backend from '../../../Templates/backend';
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -32,7 +33,7 @@ export const { addUserState, addUserSuccess, addUserFailure } = userSlice.action
 export const addUser = (FormData) => async (dispatch) => {
     dispatch(addUserState());
     try {
-        const response = await axios.post('https://parte-backend-ecommerce.onrender.com/signup', FormData);
+        const response = await axios.post(`${backend.url_base}/signup`, FormData);
         dispatch(addUserSuccess(response.data));
     } catch (error) {
         dispatch(addUserFailure(error.response.data));

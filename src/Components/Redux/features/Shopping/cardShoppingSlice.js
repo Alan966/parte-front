@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+import backend from "../../../Templates/backend";
 export const postProduct = createAsyncThunk('carShopping/product', async ({token, data}) => {
-    const response = await axios.post('https://parte-backend-ecommerce.onrender.com/shopping/create', data, {
+    const response = await axios.post(`${backend.url_base}/shopping/create`, data, {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
@@ -29,7 +29,6 @@ const cardShoppingSlice = createSlice({
         .addCase(postProduct.fulfilled, (state, action) => {
             state.success = action.payload.success
             state.message = null
-            state.products = state.products
         })
         .addCase(postProduct.rejected, (state, action) => {
             state.success = false

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import backend from "../../../Templates/backend";
 const initialState = {
     success: false,
     message: null,
@@ -35,7 +35,7 @@ export const { getArticleState, getArticleStateSuccess, getArticleStateFailure }
 export const getArticle = (id_promotion) => async (dispatch) => {
     dispatch(getArticleState());
     try{
-        const response = await fetch(`https://parte-backend-ecommerce.onrender.com/articles/id_promotion/${id_promotion}`);
+        const response = await fetch(`${backend.url_base}/articles/id_promotion/${id_promotion}`);
         const data = await response.json();
         dispatch(getArticleStateSuccess(data));
     }
